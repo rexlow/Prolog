@@ -169,7 +169,7 @@ actor(lucy, morgan_freeman, professor_norman).
 actor(lucy, min-sik_choi, mrjang).
 actor(lucy, amr_waked, pierre_del_rio).
 actor(lucy, julian_rhind-tutt, the_limey).
-actor(lucy, pilou_asbk, richad).
+actor(lucy, pilou_asb�k, richad).
 actress(lucy, analeigh_tipton, caroline).
 actor(lucy, nicolas_phongpheth, jii).
 actor(lucy, jan_oliver_schroeder, german_mule).
@@ -179,13 +179,13 @@ actor(lucy, pierre_grammont, professor).
 actor(lucy, pierre_poirot, professor).
 actor(lucy, bertrand_quoniam, professor).
 actor(lucy, pascal_loison, drug_addict).
-actor(lucy, pierra_grard, airport_doctor).
+actor(lucy, pierra_g�rard, airport_doctor).
 actress(lucy, isabelle_cagnat, airport_nurse).
-actor(lucy, frdric_chau, cabin_manager).
+actor(lucy, fr�d�ric_chau, cabin_manager).
 actress(lucy, calire_tram, flight_attendant).
 actor(lucy, francios_legrand, business_man_plane).
 actor(lucy, bob_martet, customs_officer).
-actor(lucy, cdric_chevalme, cop_daniel).
+actor(lucy, c�dric_chevalme, cop_daniel).
 actor(lucy, alexis_rangheard, cop_robert).
 actor(lucy, tonia_descanvelle, cop_sergeant).
 actor(lucy, christophe_lavalle, cop).
@@ -342,7 +342,7 @@ actress(fifty_shades_of_grey, dakota_johnson, anastasia_steele).
 actor(fifty_shades_of_grey, jamie_dronan, christian_grey).
 actress(fifty_shades_of_grey, jennifer_ehle, carla).
 actress(fifty_shades_of_grey, eloise_mumford, kate).
-actor(fifty_shades_of_grey, victor_rasuk, jos).
+actor(fifty_shades_of_grey, victor_rasuk, jos�).
 actor(fifty_shades_of_grey, luke_grimes, elliot_grey).
 actress(fifty_shades_of_grey, rita_ora, mia_grey).
 actor(fifty_shades_of_grey, max_martini, taylor).
@@ -515,7 +515,7 @@ actor(the_expendables_three, velizar_binev, art_broker).
 actress(the_expendables_three, sarai_givaty, camilla).
 
 movie(roboCop,2014).
-director(roboCop,jos_Padilha).
+director(roboCop,jos�_Padilha).
 actor(roboCop,joel_Kinnaman,alex_Murphy).
 actor(roboCop,gary_Oldman,dr_Dennett_Norton).
 actor(roboCop,michael_Kaeton,raymond_Sellars).
@@ -558,11 +558,27 @@ actor(theHungerGames,michael_garza,eddy).
 actor(theHungerGames,charles_kronmuller,pilot1).
 actor(theHungerGames,greg_crews,peacekeeper).
 
-%question 1 and 2
+%question a1 and a2
 release_date(Movie, Date) :-
   movie(Movie, Date).
 
-%question 3
+%question a3
 release_before_2000(Movie) :-
   movie(Movie, X),
   X < 2000.
+
+%question a4
+%count(Count, 2).
+%count_actor(Actor) :-
+
+
+%question a5
+directed(Actor, Director) :-
+  director(Movie, Director),
+  actress(Movie, Actor, _).
+
+%question a6
+actor_directed(Actor) :-
+  director(_, Actor),
+  (actor(_, Actor, _);
+   actress(_, Actor, _)).
