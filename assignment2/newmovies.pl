@@ -558,27 +558,19 @@ actor(theHungerGames,michael_garza,eddy).
 actor(theHungerGames,charles_kronmuller,pilot1).
 actor(theHungerGames,greg_crews,peacekeeper).
 
+%below are rules that dont relate to the question
 %question a1 and a2
-release_date(Movie, Date) :-
-  movie(Movie, Date).
+%release_date(Movie, Date) :- movie(Movie, Date).
 
 %question a3
-release_before_2000(Movie) :-
-  movie(Movie, X),
-  X < 2000.
+%release_before_2000(Movie) :- movie(Movie, X), X < 2000.
 
 %question a4
-%count(Count, 2).
-%count_actor(Actor) :-
+%actor(M,A,_),actor(M2,A,_),M\=M2.
 
 
 %question a5
-directed(Actor, Director) :-
-  director(Movie, Director),
-  actress(Movie, Actor, _).
+%directed(Actor, Director) :- director(Movie, Director), actress(Movie, Actor, _).
 
 %question a6
-actor_directed(Actor) :-
-  director(_, Actor),
-  (actor(_, Actor, _);
-   actress(_, Actor, _)).
+%actor_directed(Actor) :- director(_, Actor), (actor(_, Actor, _); actress(_, Actor, _)).
