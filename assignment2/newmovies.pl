@@ -583,3 +583,25 @@ actor(theHungerGames,greg_crews,peacekeeper).
 ?-movie(X, 2015).
 
 %question a3
+
+%question b1
+release_since(M, X) :- movie(M, X).
+
+%question b2
+
+%question b3
+same_year_as(M1, M2) :-
+  movie(M1, X), movie(M2, X).
+
+%question b4
+newer(M1, M2) :-
+  movie(M1, X), movie(M2, Y), X>Y.
+
+%question b5
+cast_member(A, M) :-
+  actor(M, A, _); actress(M, A, _).
+
+%question b6
+directed_by(X, Y) :-
+  director(M, Y),
+  (actor(M, X, _); actress(M, X, _)).
