@@ -574,3 +574,12 @@ actor(theHungerGames,greg_crews,peacekeeper).
 
 %question a6
 %actor_directed(Actor) :- director(_, Actor), (actor(_, Actor, _); actress(_, Actor, _)).
+
+%below are queries, which are required
+%question a1
+?-movie(avenger,X).
+
+%question a2
+?-movie(X, 2015).
+
+%question a3
