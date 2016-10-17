@@ -566,7 +566,7 @@ actor(theHungerGames,greg_crews,peacekeeper).
 %release_before_2000(Movie) :- movie(Movie, X), X < 2000.
 
 %question a4
-%actor(M,A,_),actor(M2,A,_),M\=M2.
+actor(M,A,_),actor(M2,A,_),M\=M2.
 
 
 %question a5
@@ -588,6 +588,8 @@ actor(theHungerGames,greg_crews,peacekeeper).
 release_since(M, X) :- movie(M, X).
 
 %question b2
+release_between(M, X, Y) :-
+  movie(M, A), X is A-1, movie(M, Y).
 
 %question b3
 same_year_as(M1, M2) :-
