@@ -583,6 +583,13 @@ actor(M,A,_),actor(M2,A,_),M\=M2.
 ?-movie(X, 2015).
 
 %question a3
+?-movie(X,Y), Y<2000.
+
+%question a4
+?-actor(M1, X, _), actor(M2, X, _), M1\=M2.
+
+%question a5
+?-director(X, Y),actress(X, scarlett_johansson).
 
 %question b1
 release_since(M, X) :- movie(M, X).
