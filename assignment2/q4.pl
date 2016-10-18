@@ -35,6 +35,4 @@ cast_member(A, M) :-
   actor(M, A, _); actress(M, A, _).
 
 %question b6
-directed_by(X, Y) :-
-  director(M, Y),
-  (actor(M, X, _); actress(M, X, _)).
+µ
