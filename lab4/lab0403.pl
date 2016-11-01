@@ -1,2 +1,2 @@
-member(Head, [Head|Tail]).
-member(X, [Head|Tail]) :- member(X, Tail).
+member(H, [H|T]).
+member(X, [H|T]) :- member(X, T).
