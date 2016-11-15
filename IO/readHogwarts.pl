@@ -1,13 +1,13 @@
 main :-
-  open('hogwarts.txt', read, S),
-  readHouses(S, Houses),
-  close(S),
-  write(Houses), nl.
+    open('hogwarts.txt', read, Str),
+    read_file(Str,Lines),
+    close(Str),
+    write(Lines), nl.
 
-readHouses(S, []) :-
-  at_end_of_stream(S), !.
+read_file(Stream,[]) :-
+    at_end_of_stream(Stream).
 
-readHouses(S, [X|L]) :-
-  \+ at_end_of_stream(S), !,
-  read(S,X),
-  readHouses(S, L).
+read_file(Stream,[X|L]) :-
+    \+ at_end_of_stream(Stream),
+    read(Stream,X),
+    read_file(Stream,L).
