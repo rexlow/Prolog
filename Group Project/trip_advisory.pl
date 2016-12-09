@@ -234,3 +234,20 @@ undo:-retract(yes(_)),fail.
 undo:-retract(no(_)),fail.
 undo.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
