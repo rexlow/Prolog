@@ -7,7 +7,7 @@ main :-
   dynamic(indoor/1),
   dynamic(outdoor/1),
   ask_general_interest, %store user general preference into database
-  hGP(GeneralInterest),
+  hGP,
   show_places,
   undo.
 
@@ -32,11 +32,9 @@ ask_general_interest :-
   ).
 
 %hypothesizeGeneralPreferences - hGP
-
-hGP(baba_nyonya_heritage_melaka) :- baba_nyonya_heritage_melaka, !.
-hGP(pinang_peranakan_mansion) :- pinang_peranakan_mansion, !.
-hGP(chinatown_kl) :- chinatown_kl, !.
-
+hGP :- baba_nyonya_heritage_melaka.
+hGP :- pinang_peranakan_mansion.
+hGP :- chinatown_kl.
 
 baba_nyonya_heritage_melaka :-
   generalPreference(Indoor),
@@ -51,8 +49,11 @@ chinatown_kl :-
   assert(outdoor(chinatown_kl)).
 
 show_places :-
-  generalPreference(Choice),
-  a
+  (
+    generalPreference(Indoor) -> listing(indoor);
+    generalPreference(Outdoor) -> listing(outdoor);
+    writeln('shit')
+  ).
 
 
 /*undo all yes/no assertions*/
