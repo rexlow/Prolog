@@ -31,7 +31,6 @@ hypothesize(redang_island) :- redang_island,!.
 hypothesize(cenang_beach) :- cenang_beach,!.
 hypothesize(boh_tea_plantation) :- boh_tea_plantation,!.
 hypothesize(big_red_strawberry_farm) :- big_red_strawberry_farm,!.
-hypothesize(unknown). /*No places match*/
 
 
 
@@ -234,21 +233,3 @@ verify(S) :-
 undo:-retract(yes(_)),fail.
 undo:-retract(no(_)),fail.
 undo.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
