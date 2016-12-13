@@ -25,16 +25,14 @@ ask_general_interest :-
   readln(X),
   atomic_list_concat(X, '', Y), nl,
   (
-    Y == '1' -> !, writeln('Alright! You will see more indoor activities from now on!'), assert(generalPreference(Indoor));
-    Y == '2' -> !, writeln('Alright! You will see more outdoor activities from now on!'), assert(generalPreference(Outdoor));
-    Y == '0' -> !, writeln('See you again, bye!');
+    Y = '1' -> !, writeln('Alright! You will see more indoor activities from now on!'), assert(generalPreference(Indoor));
+    Y = '2' -> !, writeln('Alright! You will see more outdoor activities from now on!'), assert(generalPreference(Outdoor));
+    Y = '0' -> !, writeln('See you again, bye!');
     writeln('Invalid input')
   ).
 
 %hypothesizeGeneralPreferences - hGP
-hGP :- baba_nyonya_heritage_melaka.
-hGP :- pinang_peranakan_mansion.
-hGP :- chinatown_kl.
+hGP :- baba_nyonya_heritage_melaka, pinang_peranakan_mansion, chinatown_kl.
 
 baba_nyonya_heritage_melaka :-
   generalPreference(Indoor),
@@ -49,11 +47,9 @@ chinatown_kl :-
   assert(outdoor(chinatown_kl)).
 
 show_places :-
-  (
-    generalPreference(Indoor) -> listing(indoor);
-    generalPreference(Outdoor) -> listing(outdoor);
-    writeln('shit')
-  ).
+  generalPreference(Outdoor) -> write('out');
+  generalPreference(Indoor) -> write('indoor');
+  writeln('shit').
 
 
 /*undo all yes/no assertions*/

@@ -1,9 +1,15 @@
-main :- hypothesize(Place),
+main :-
+	welcome,
+	hypothesize(Place),
 	write('The suggested place is : '),
 	write(Place),nl,
 	undo.
 
-hypothesize(baba_nyonya_heritage_melaka ) :- baba_nyonya_heritage_melaka  ,!.
+welcome :-
+	writeln('Welcome to Trip Advisory System.'),
+	writeln('Let us help you to choose the best place to go to in Malaysia!'), nl.
+
+hypothesize(baba_nyonya_heritage_melaka) :- baba_nyonya_heritage_melaka  ,!.
 hypothesize(pinang_peranakan_mansion) :- pinang_peranakan_mansion,!.
 hypothesize(islamic_arts_museum_malaysia ) :- islamic_arts_museum_malaysia ,!.
 hypothesize(petrosains_science_discovery_centre ) :- petrosains_science_discovery_centre ,!.
@@ -31,9 +37,7 @@ hypothesize(redang_island) :- redang_island,!.
 hypothesize(cenang_beach) :- cenang_beach,!.
 hypothesize(boh_tea_plantation) :- boh_tea_plantation,!.
 hypothesize(big_red_strawberry_farm) :- big_red_strawberry_farm,!.
-
-
-
+hypothesize(unknown) :- writeln('Unfortunately the program could not find any matches. Please run the program again.').
 
 /*places identification rules*/
 baba_nyonya_heritage_melaka :-
@@ -221,13 +225,11 @@ ask(Question) :-
 
 /*how to verify something*/
 verify(S) :-
-	(yes(S)
-	->
-	true;
-	(no(S)
-	->
-	fail;
-	ask(S))).
+	( yes(S) -> true;
+		( no(S) -> fail;
+	  	ask(S)
+		)
+	).
 
 /*undo all yes/no assertions*/
 undo:-retract(yes(_)),fail.
