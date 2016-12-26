@@ -21,3 +21,13 @@ fail_driven(_).
 %
 map_list(List) :-
   maplist(writeln, List).
+
+%
+%repeat
+%
+repeat_loop :-
+  repeat,
+  write('Enter command and . (type end. to exit): '),
+  read(X),
+  writeln(X), nl,
+  X = end.
