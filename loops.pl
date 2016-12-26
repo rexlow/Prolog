@@ -14,3 +14,10 @@ fail_driven(List) :-
   writeln(X),
   fail.
 fail_driven(_).
+
+
+%
+%map
+%
+map_list(List) :-
+  maplist(writeln, List).
