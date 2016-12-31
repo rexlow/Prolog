@@ -1,28 +1,32 @@
 %fist ask food type then ask preference
 
-is_spicy :-
-  write('Do you want spicy? (yes/no)'),
+food(indian) :-
+  write('Do you want spicy? (spicy/not_spicy)'),
   read(Preference),
-  ( Preference == yes -> recommend("Curry"); recommend("Kurma") ).
+  food(indian,Preference).
 
-is_fry :-
-  write('Do you want fry food? (yes/no)'),
+food(chinese) :-
+  write('Do you want fry food? (fry/not_fry)'),
   read(Preference),
-  ( Preference == yes -> recommend("StirFry"); recommend("Chicken") ).
+  food(chinese,Preference).
 
-is_chili :-
-  write('Do you want chili? (yes/no)'),
+food(malay) :-
+  write('Do you want chili? (chili/not_chili)'),
   read(Preference),
-  ( Preference == yes -> recommend("Sambal"); recommend("Singgang") ).
+  food(malay,Preference).
+
+food(indian,spicy) :- recommend("Curry").
+food(indian,not_spicy) :- recommend("Kurma").
+
+food(chinese,fry) :- recommend("StirFry").
+food(chinese,not_fry) :- recommend("Chicken").
+
+food(malay,chili) :- recommend("Sambal").
+food(malay,not_chili) :- recommend("Singgang").
 
 recommend(Food) :- write('We recommend you '), write(Food).
 
 go :-
   write('Which food type do you prefer? (indian, chinese, malay): '),
   read(FoodType),
-  (
-    FoodType == indian -> is_spicy;
-    FoodType == chinese -> is_fry;
-    FoodType == malay -> is_chili;
-    writeln('Please try again')
-  ).
+  food(FoodType).
